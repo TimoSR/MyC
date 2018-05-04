@@ -1,0 +1,16 @@
+top down aproach
+
+
+linier
+vinkel
+koordinat systwm
+streams 1, 2, 3, 4, 5 falling of the roof colected by the segment 
+
+
+compute howmuch water is down from each segment of the roof 
+
+1 ltr water falling on 1 meter horizontal plane during one second 
+
+- reads the description of a roof,
+- computes the amount of water down in one second from each segment of the roof,
+- writes the results.
