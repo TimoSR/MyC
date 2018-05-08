@@ -83,13 +83,13 @@ int main() {
     */
     //printf("Calculating Water drain\n");
 
-    for (int l = 0; l < 3; l++) {
+    for (int l = 0; l < *number_of_roofs_ptr; l++) {
 
         int covered;
 
         int exposed_To_Water;
 
-        if((l+1) > 3) { break;};
+        if((l+1) > *number_of_roofs_ptr) { break;};
 
         if(roof_Collection[l].point1.x <= roof_Collection[l+1].point1.x
            && roof_Collection[l].point2.x >= roof_Collection[l+1].point1.x
@@ -123,7 +123,16 @@ int main() {
 
         }
 
-        if ()
+        if (l > 0
+            && roof_Collection[l].point1.x < roof_Collection[l-1].point2.x
+            && roof_Collection[l].point2.y < roof_Collection[l-1].point1.y
+            && roof_Collection[l].point2.x <= roof_Collection[l+1].point1.x) {
+
+            exposed_To_Water =  abs(roof_Collection[l].point1.x - roof_Collection[l-1].point2.x);
+
+            roof_Collection[l].water_Drain = exposed_To_Water;
+
+        }
 
     }
 
