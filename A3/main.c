@@ -7,13 +7,7 @@ struct point {
 
 };
 
-struct lenght {
-
-
-
-};
-
-struct roof {
+struct roof_Section {
 
     struct point point1;
     struct point point2;
@@ -24,6 +18,12 @@ struct roof {
 size_t getSize(float *ptr);
 
 int main() {
+
+    int number_of_roofs;
+
+    printf("How many roofs?");
+
+    int scanf("%d",&number_of_roofs);
 
     int roofs[10] = {2,1};
 
