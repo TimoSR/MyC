@@ -1,14 +1,32 @@
 #include <stdio.h>
-#include <math.h>
 
+double calpi(double precession);
 
 int main() {
 
+    printf("%lf\n", calpi(9999));
 
-double a = 4-((4*4*4)/3)+((4*4*4*4*4)/5);
+    return 0;
+}
 
-printf("%lf\n", a);
 
+double calpi(double precession) {
+
+    double counter = 1.0;
+    double donominator = 1.0;
+    double cal;
+
+    for (int i = 1; i < precession-1; i++) {
+
+        cal =+ counter/donominator ;
+
+        printf("%lf %lf \n", counter, donominator);
+
+        donominator+2;
+
+    }
+
+    return (double) cal*4.0;
 
 }
 
