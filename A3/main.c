@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-
 typedef struct {
 
     int x, y;
@@ -11,7 +10,7 @@ typedef struct {
 typedef struct {
 
     POINT point1, point2;
-    int *length;
+    int length;
 
 } ROOF;
 
@@ -19,31 +18,74 @@ ROOF roof_Info_wrt(int x1, int y1, int x2, int y2);
 
 void print_Roof(ROOF read);
 
-ROOF sort[](ROOF collection[]);
+//size_t getSize(float *ptr);
 
 int main() {
 
-    int x1, y1, x2, y2;
+    unsigned int x1, y1, x2, y2;
+    ROOF hold;
 
     int number_of_roofs;
+
     int *number_of_roofs_ptr = &number_of_roofs;
+
+    //Debugging
     printf("How many roofs?\n");
+
     scanf("%d", &number_of_roofs);
 
     ROOF roof_Collection[*number_of_roofs_ptr];
 
+    //Debugging
     printf("Please enter coordinates\n");
 
-    for (size_t i = 0; i < *number_of_roofs_ptr; i++) {
+    for (int i = 0; i < *number_of_roofs_ptr; ++i) {
 
         scanf("%d %d %d %d", &x1, &y1, &x2, &y2);
+
         roof_Collection[i] = roof_Info_wrt(x1, y1, x2, y2);
+
+        //For debugging
         print_Roof(roof_Collection[i]);
 
+        if(0 < i) {
 
+        for (int j = i; j > 0; j--) {
+
+            printf("i %d, j %d\n", i, j);
+
+            //if((j-1) < 0) {break;};
+
+            if(roof_Collection[j-1].point1.x > roof_Collection[j].point1.x) {
+
+                hold = roof_Collection[j-1];
+                roof_Collection[j-1] = roof_Collection[j];
+                print_Roof(roof_Collection[j-1]);
+                roof_Collection[j] = hold;
+                print_Roof(roof_Collection[j]);
+
+                };
+            }
+
+        }
+    }
+
+    printf("This is the roofs in descending order:\n");
+
+    for (int k = 0; k < *number_of_roofs_ptr; k++) {
+
+        print_Roof(roof_Collection[k]);
 
     }
 
+
+
+/**
+    printf("The bit space used in the array %u\n"
+           "The total bit space available  in the array %u\n"
+           "Bit space left %d\n"
+           "Objects in the array %d\n",getSize(roof_Collection), sizeof(roof_Collection),(sizeof(roof_Collection)-getSize(roof_Collection)), (getSize(roof_Collection)/4));
+*/
     return 0;
 }
 
@@ -67,10 +109,12 @@ void print_Roof(ROOF read) {
 
 };
 
-ROOF sort[](ROOF collection[]) {
+/**
+size_t getSize(float *ptr) {
 
-    for (int j = 1; j <  ; ++j) {
+    return sizeof(ptr);
 
-    }
+}
+*/
 
-};
+
