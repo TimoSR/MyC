@@ -83,13 +83,13 @@ int main() {
     */
     //printf("Calculating Water drain\n");
 
-    for (int l = 0; l < 2; ++l) {
+    for (int l = 0; l < 3; l++) {
 
         int covered;
 
         int exposed_To_Water;
 
-        if((l+1) > 2) { break;};
+        if((l+1) > 3) { break;};
 
         if(roof_Collection[l].point1.x <= roof_Collection[l+1].point1.x
            && roof_Collection[l].point2.x >= roof_Collection[l+1].point1.x
@@ -99,21 +99,40 @@ int main() {
 
             covered = roof_Collection[l].point2.x - roof_Collection[l+1].point1.x;
 
-            printf("%d\n",covered);
+            //printf("%d\n",covered);
 
             exposed_To_Water = roof_Collection[l].length - covered;
 
-            printf("%d\n", exposed_To_Water);
+            //printf("%d\n", exposed_To_Water);
 
             roof_Collection[l].water_Drain = exposed_To_Water;
 
-            print_Roof(roof_Collection[l]);
-
-            }
-
-
+            //print_Roof(roof_Collection[l]);
 
         }
+
+        if (l > 0
+           && roof_Collection[l].point1.y > roof_Collection[l+1].point1.y
+           && roof_Collection[l].point2.y > roof_Collection[l+1].point2.y
+           && roof_Collection[l].point1.y > roof_Collection[l-1].point1.y
+           && roof_Collection[l].point2.y > roof_Collection[l-1].point2.y) {
+
+            exposed_To_Water = roof_Collection[l].length;
+
+            roof_Collection[l].water_Drain = exposed_To_Water;
+
+        }
+
+        if ()
+
+    }
+
+    for (int k = 0; k < *number_of_roofs_ptr; k++) {
+
+        printf("roof %d\n", k+1);
+        print_Roof(roof_Collection[k]);
+
+    }
 
 
 /**
