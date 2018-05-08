@@ -1,47 +1,65 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 
-struct point {
+typedef struct {
 
-    int x,y;
+    int x, y;
 
-};
+} POINT;
 
-struct roof_Section {
+typedef struct {
 
-    struct point point1;
-    struct point point2;
-    int length;
+    POINT point1, point2;
+    int *length;
 
-};
+} ROOF;
 
-size_t getSize(float *ptr);
+ROOF roof_Info_wrt(int x1, int y1, int x2, int y2);
+
+void print_Struct(ROOF read);
 
 int main() {
 
+    int x1, y1, x2, y2;
+
     int number_of_roofs;
+    int *number_of_roofs_ptr = &number_of_roofs;
+    printf("How many roofs?\n");
+    scanf("%d", &number_of_roofs);
 
-    printf("How many roofs?");
+    ROOF roof_Collection[*number_of_roofs_ptr];
 
-    int scanf("%d",&number_of_roofs);
+    printf("Please enter coordinates\n");
 
-    int roofs[10] = {2,1};
+    for (size_t i = 0; i < *number_of_roofs_ptr; i++) {
 
-    printf("The bit space used in the array %u\n"
-           "The total bit space available  in the array %u\n"
-           "Bit space left %d\n"
-           "Objects in the array %d\n",getSize(roofs), sizeof(roofs),(sizeof(roofs)-getSize(roofs)), (getSize(roofs)/4));
+        scanf("%d %d %d %d", &x1, &y1, &x2, &y2);
+        printf("%d %d %d %d\n", x1, y1, x2, y2);
+        roof_Collection[i] = roof_Info_wrt(x1, y1, x2, y2);
+        print_Struct(roof_Collection[i]);
 
-
+    }
 
     return 0;
 }
 
-size_t getSize(float *ptr) {
+ROOF roof_Info_wrt(int x1, int y1, int x2, int y2) {
 
-    return sizeof(ptr);
+    POINT first;
+    POINT second;
+    first = (POINT) {.x=x1, .y=y1};
+    second = (POINT) {.x=x2, .y=y2};
+    ROOF roof;
+    int length = abs(x1 - x2);
+    roof = (ROOF) {.point1 = first, .point2 = second, .length = length};
+    return roof;
+};
 
-}
+void print_Struct(ROOF read) {
 
+    printf("Point1 = x1: %d y2: %d\n"
+           "Point2 = x2: %d y2: %d\n"
+           "length = %d\n", read.point1.x, read.point1.y, read.point2.x, read.point2.y, read.length);
 
-
+};
