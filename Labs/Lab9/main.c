@@ -1,12 +1,3 @@
-/*
- *
- *
- *
- *
- *
- */
-
-
 #include <stdio.h>
 
 char programName[] = "Lab1";
@@ -29,7 +20,7 @@ int main() {
         printf("Please enter the temperature in celciuse: \n");
         scanf("%f", &celsius);
 
-        fahrenheit = (9/5.0)*celsius + 32;
+        fahrenheit = (9 / 5.0) * celsius + 32;
 
         printf("%.2f Celcius = %.2f Fahrenheit \n\n", celsius, fahrenheit);
 
@@ -41,8 +32,10 @@ int main() {
 
             }
 
-    }
+        }
 
-    return 0;
+        return 0;
+
+    }
 
 }

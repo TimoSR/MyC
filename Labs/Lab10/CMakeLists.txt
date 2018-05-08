@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.9)
-project(A1 C)
+project(Lab10 C)
 
 set(CMAKE_C_STANDARD 11)
 
-add_executable(A1 main.c)
+add_executable(Lab10 main.c)
