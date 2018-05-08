@@ -17,7 +17,9 @@ typedef struct {
 
 ROOF roof_Info_wrt(int x1, int y1, int x2, int y2);
 
-void print_Struct(ROOF read);
+void print_Roof(ROOF read);
+
+ROOF sort[](ROOF collection[]);
 
 int main() {
 
@@ -35,9 +37,10 @@ int main() {
     for (size_t i = 0; i < *number_of_roofs_ptr; i++) {
 
         scanf("%d %d %d %d", &x1, &y1, &x2, &y2);
-        printf("%d %d %d %d\n", x1, y1, x2, y2);
         roof_Collection[i] = roof_Info_wrt(x1, y1, x2, y2);
-        print_Struct(roof_Collection[i]);
+        print_Roof(roof_Collection[i]);
+
+
 
     }
 
@@ -56,10 +59,18 @@ ROOF roof_Info_wrt(int x1, int y1, int x2, int y2) {
     return roof;
 };
 
-void print_Struct(ROOF read) {
+void print_Roof(ROOF read) {
 
-    printf("Point1 = x1: %d y2: %d\n"
+    printf("Point1 = x1: %d y1: %d\n"
            "Point2 = x2: %d y2: %d\n"
-           "length = %d\n", read.point1.x, read.point1.y, read.point2.x, read.point2.y, read.length);
+           "Length = %d\n", read.point1.x, read.point1.y, read.point2.x, read.point2.y, read.length);
+
+};
+
+ROOF sort[](ROOF collection[]) {
+
+    for (int j = 1; j <  ; ++j) {
+
+    }
 
 };
