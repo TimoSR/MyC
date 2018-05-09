@@ -203,9 +203,9 @@ int main() {
             }
 
             if ((roof_Collection[i].point1.x <= lowest_Point_X
-                && roof_Collection[i].point2.x >= lowest_Point_X)
+                 && roof_Collection[i].point2.x >= lowest_Point_X)
                 && (roof_Collection[i].point1.y < lowest_Point_Y
-                    || roof_Collection[i].point2.y < lowest_Point_Y )) {
+                    || roof_Collection[i].point2.y < lowest_Point_Y)) {
 
                 roof_Collection[i].total_Water_Drain += roof_Collection[m].total_Water_Drain;
                 //roof_Collection[m].water_Stream = roof_Collection[m].total_Water_Drain;
@@ -266,7 +266,7 @@ void print_Roof(ROOF read) {
            "Point2 = x2: %d y2: %d\n"
            "Length = %d\n"
            "Total Water Drain = %d\n"
-           /*"Water Stream = %d\n"*/,
+            /*"Water Stream = %d\n"*/,
            read.point1.x, read.point1.y, read.point2.x, read.point2.y,
            read.length, read.total_Water_Drain/*, read.water_Stream*/);
 
