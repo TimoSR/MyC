@@ -11,6 +11,8 @@ int main() {
     int amount_Of_Odd;
     int accumulated_Even;
     float accumulated_Odd;
+    float average_Odd;
+    float average_Even;
 
     while (input != 0) {
 
@@ -41,14 +43,27 @@ int main() {
 
     }
 
+    if (amount_Of_Even > 0) {
+
+        average_Even = ((float)accumulated_Even / (float)amount_Of_Even);
+
+    }
+
+    if (amount_Of_Odd > 0) {
+
+        average_Odd = (accumulated_Odd / amount_Of_Odd);
+
+    }
+
+
     printf("\nIntegers Typed: %d\n"
            "First Natural Number entered: %d\n"
            "Even Integers: %d\n"
            "Odd Integers: %d\n"
-           "Average of the even: %d\n"
+           "Average of the even: %f\n"
            "Average of the odd: %f\n",
-           counter, first_Natural_Number, amount_Of_Even, amount_Of_Odd, accumulated_Even / amount_Of_Even,
-           accumulated_Odd / amount_Of_Odd);
+           counter, first_Natural_Number, amount_Of_Even, amount_Of_Odd, average_Even,
+           average_Odd);
 
     printf("\nAll natural numbers less than the first natural number, \n"
            "which cannot be represented as input sum of two prime numbers \n");
