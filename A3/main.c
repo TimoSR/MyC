@@ -12,17 +12,12 @@ typedef struct {
     POINT point1, point2;
     int length;
     int total_Water_Drain;
-    //int water_Stream;
 
 } ROOF;
 
 ROOF roof_Info_wrt(int x1, int y1, int x2, int y2);
 
 void print_Roof(ROOF read);
-
-
-
-//size_t getSize(float *ptr);
 
 int main() {
 
@@ -84,6 +79,7 @@ int main() {
 
     }
     */
+
     //printf("Calculating Water drain\n");
 
     for (int l = 0; l < *number_of_roofs_ptr; l++) {
@@ -175,16 +171,6 @@ int main() {
 
             if (i < 2) {
 
-                /*
-
-                if  (m == *number_of_roofs_ptr-1) {
-
-                    roof_Collection[m].water_Stream = roof_Collection[m].total_Water_Drain;
-
-                }
-
-                */
-
                 if (roof_Collection[m].point1.y < roof_Collection[m].point2.y) {
 
                     lowest_Point_X = roof_Collection[m].point1.x;
@@ -212,20 +198,6 @@ int main() {
 
             }
 
-            /**
-
-                if ((roof_Collection[i].point1.x >= roof_Collection[m].point1.x
-                     && roof_Collection[i].point1.x <= roof_Collection[m].point2.x)
-                    && roof_Collection[i].point1.y < roof_Collection[i].point2.y) {
-
-                    roof_Collection[i].water_Stream == roof_Collection[i].water_Drain;
-                    roof_Collection[m].water_Drain = +roof_Collection[i].water_Stream;
-
-                }
-
-            if (roof_Collection[m].point1.x)
-
-            */
         }
 
     }
