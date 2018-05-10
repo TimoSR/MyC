@@ -1,85 +1,61 @@
 #include <stdio.h>
 
+int is_prime(int num);
+
 int main() {
 
-    int a = 1;
-
-    int i;
+    int input = 1;
+    int counter;
     int first_Natural_Number;
-    //int *first_Natural_Number_Ptr;
     int amount_Of_Even;
     int amount_Of_Odd;
-    float average_Even;
-    float average_Odd;
-    //int displayed_Numbers[*first_Natural_Number_Ptr];
+    int accumulated_Even;
+    float accumulated_Odd;
 
-    while (a != 0) {
+    while (input != 0) {
 
-        scanf("%d", &a);
+        scanf("%d", &input);
 
-        if (a == 0) {
+        if (input == 0) {
 
             break;
 
         }
 
-        if (a > 0) {
+        if (input > 0 && counter == 0) {
 
-            first_Natural_Number = a;
+            first_Natural_Number = input;
 
         }
 
-        if (a % 2 == 0) {
-
+        if (input % 2 == 0) {
             amount_Of_Even++;
-
-            int accumulated;
-
-            accumulated += a;
-
-            if (accumulated != 0 && accumulated > 0) {
-
-            average_Even = (float) (accumulated / amount_Of_Even);
-
-            }
-
+            accumulated_Even += input;
         }
-
-        if (a % 2 != 0) {
-
+        if (input % 2 != 0) {
             amount_Of_Odd++;
-
-            int accumulated;
-
-            accumulated += a;
-
-
-            if (accumulated != 0 && accumulated > 0) {
-
-            average_Odd = (float) (accumulated / amount_Of_Odd);
-
-            }
-
+            accumulated_Odd += input;
         }
 
-        i++;
+        counter++;
 
     }
 
-    printf("Integers Typed: %d\n"
+    printf("\nIntegers Typed: %d\n"
            "First Natural Number entered: %d\n"
            "Even Integers: %d\n"
            "Odd Integers: %d\n"
-           "Average of the even: %f\n"
+           "Average of the even: %d\n"
            "Average of the odd: %f\n",
-           i, first_Natural_Number, amount_Of_Even, amount_Of_Odd, average_Even, average_Odd);
+           counter, first_Natural_Number, amount_Of_Even, amount_Of_Odd, accumulated_Even / amount_Of_Even,
+           accumulated_Odd / amount_Of_Odd);
 
-    printf("All natural numbers less than the first natural number, \n"
-           "which cannot be represented as a sum of two prime numbers \n");
+    printf("\nAll natural numbers less than the first natural number, \n"
+           "which cannot be represented as input sum of two prime numbers \n");
 
     int count;
 
-    for (int j = first_Natural_Number; j >= 2 ; j--) {
+    for (int j = first_Natural_Number; j >= 2; j--) {
 
         if (j == first_Natural_Number) {
 
@@ -87,16 +63,28 @@ int main() {
 
         }
 
-        if ((j%2) != 0) {
 
-            printf("%d\n",j);
+        if (is_prime(j) == 1) {
+
+            printf("\n%d\n", j);
 
         }
-
 
         count++;
 
     }
 
     return 0;
+}
+
+int is_prime(int num) {
+
+    if (num <= 1) return 0;
+    if (num % 2 == 0 && num > 2) return 0;
+    for (int i = 3; i < num / 2; i += 2) {
+        if (num % i == 0)
+            return 0;
+    }
+    return 1;
+
 }
