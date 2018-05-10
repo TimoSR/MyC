@@ -14,6 +14,8 @@ int main() {
     float average_Odd;
     float average_Even;
 
+    //taking and sorting input
+
     while (input != 0) {
 
         scanf("%d", &input);
@@ -23,6 +25,8 @@ int main() {
             break;
 
         }
+
+        //the first natural number entered
 
         if (input > 0 && counter == 0) {
 
@@ -57,15 +61,15 @@ int main() {
 
 
     printf("\nIntegers Typed: %d\n"
-           "First Natural Number entered: %d\n"
-           "Even Integers: %d\n"
-           "Odd Integers: %d\n"
-           "Average of the even: %f\n"
-           "Average of the odd: %f\n",
+           "\nFirst Natural Number entered: %d\n"
+           "\nEven Integers: %d\n"
+           "\nOdd Integers: %d\n"
+           "\nAverage of the even: %f\n"
+           "\nAverage of the odd: %f\n",
            counter, first_Natural_Number, amount_Of_Even, amount_Of_Odd, average_Even,
            average_Odd);
 
-    printf("\nAll natural numbers less than the first natural number, \n"
+    printf("\nAll natural numbers less than the first natural number, which \n"
            "which cannot be represented as input sum of two prime numbers \n");
 
     int count;
@@ -91,6 +95,8 @@ int main() {
 
     return 0;
 }
+
+//The function to check if the input is prime
 
 int is_prime(int num) {
 
